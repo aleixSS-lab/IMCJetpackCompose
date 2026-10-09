@@ -9,35 +9,44 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = TealPrimaryLight,
+    onPrimary = Color.Black,
+    primaryContainer = TealDark,
+    onPrimaryContainer = Color.White,
+    secondary = MintSecondaryLight,
+    onSecondary = Color.Black,
+    background = DarkBackground,
+    onBackground = Color(0xFFF1F5F9),
+    surface = DarkSurface,
+    onSurface = Color(0xFFF8FAFC),
+    surfaceVariant = DarkSurfaceVariant,
+    onSurfaceVariant = Color(0xFFCBD5E1)
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
+    primary = TealPrimary,
     onPrimary = Color.White,
+    primaryContainer = Color(0xFFCCFBF1),
+    onPrimaryContainer = TealDark,
+    secondary = MintSecondary,
     onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = LightBackground,
+    onBackground = Color(0xFF0F172A),
+    surface = LightSurface,
+    onSurface = Color(0xFF0F172A),
+    surfaceVariant = LightSurfaceVariant,
+    onSurfaceVariant = Color(0xFF475569)
 )
 
 @Composable
 fun IMCATheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Dynamic color disabled by default for consistent brand palette
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
